@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+    
+</head>
+<body>
+    <div class="hero">
+        <nav>
+       <a href="index.php"><img src="image/logo 2.jpg" alt=""></a><h1>Governor Ferrer Memorial National High School Biclatan</h1>
+        </nav>
+        
+    </div>
+        
+    </div>
+    <br>
+    <div class="container">
+        <div class="left">
+            <div class="calendar">
+                <div class="month">
+                    <i class="fas fa-angle-left prev"></i>
+                    <div class="date">April 2024</div>
+                    <i class="fas fa-angle-right next"></i>
+                    
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="days"></div>
+                <div class="goto-today">
+                    <div class="goto">
+                        <input type="text" placeholder="mm/yyyy" class="date-input" />
+                        <button class="goto-btn">Go</button>
+                    </div>
+                    <button class="today-btn">Today</button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="today-date">
+                <div class="event-day">Wed</div>
+                <div class="event-date">April 2024</div>
+            </div>
+            <div class="events">
+                <h2>Events for <span class="selected-date"></span></h2>
+                <ul class="event-list"></ul>
+            </div>
+            <div class="add-event-wrapper">
+                <div class="add-event-header">
+                    <div class="title">Add Event</div>
+                    <i class="fas fa-times close"></i>
+                </div>
+                <div class="add-event-body">
+                    <div class="add-event-input">
+                        <input type="text" placeholder="Event Name" class="event-name" />
+                    </div>
+                    <div class="add-event-input">
+                        <input type="text" placeholder="Event Time From" class="event-time-from" />
+                    </div>
+                    <div class="add-event-input">
+                        <input type="text" placeholder="Event Time To" class="event-time-to" />
+                    </div>
+                </div>
+                <div class="add-event-footer">
+                    <button class="add-event-btn">Add Event</button>
+                </div>
+            </div>
+        </div>
+        <button class="add-event">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="credits">
+        <p>Governor Ferrer Memorial Annex National High School</p>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+
+            const monthYearDisplay = document.querySelector(".date");
+            const daysContainer = document.querySelector(".days");
+            const selectedDateDisplay = document.querySelector(".selected-date");
+            const eventList = document.querySelector(".event-list");
+
+            function updateCalendar() {
+                const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+                const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+                const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
+
+                monthYearDisplay.textContent = new Date(currentYear, currentMonth).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric"
+                });
+
+                daysContainer.innerHTML = "";
+
+                for (let i = firstDayOfMonth.getDay() - 1; i >= 0; i--) {
+                    const day = document.createElement("div");
+                    day.classList.add("day", "prev-date");
+                    day.textContent = prevMonthLastDay - i;
+                    daysContainer.appendChild(day);
+                }
+
+                for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+                    const day = document.createElement("div");
+                    day.classList.add("day", "active");
+                    day.textContent = i;
+                    daysContainer.appendChild(day);
+                }
+
+                const totalDays = daysContainer.children.length;
+                const remainingDays = 42 - totalDays;
+                for (let i = 1; i <= remainingDays; i++) {
+                    const day = document.createElement("div");
+                    day.classList.add("day", "next-date");
+                    day.textContent = i;
+                    daysContainer.appendChild(day);
+                }
+            }
+
+            function displayEventsForDate(date) {
+                selectedDateDisplay.textContent = date.toLocaleDateString("en-US", {
+                    weekday: "long",
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                });
+                const events = {
+                    "April 1": "Exam day",
+                    "April 2": "Sportfest",
+                    "April 3": "Fieldtrip",
+                    "April 4": "Feeding Program",
+                    "April 5": "Parents Meeting"
+                };
+                const event = events[date.toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric"
+                })];
+                eventList.innerHTML = "";
+                if (event) {
+                    const eventItem = document.createElement("li");
+                    eventItem.textContent = event;
+                    eventList.appendChild(eventItem);
+                }
+            }
+
+            function handleDayClick(event) {
+                const selectedDay = event.target.textContent;
+                const selectedDate = new Date(currentYear, currentMonth, selectedDay);
+                displayEventsForDate(selectedDate);
+            }
+
+            function goToPreviousMonth() {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                updateCalendar();
+            }
+
+            function goToNextMonth() {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                updateCalendar();
+            }
+
+            document.querySelector(".prev").addEventListener("click", goToPreviousMonth);
+            document.querySelector(".next").addEventListener("click", goToNextMonth);
+            daysContainer.addEventListener("click", handleDayClick);
+
+            updateCalendar();
+        });
+    </script>
+</body>
+</html>

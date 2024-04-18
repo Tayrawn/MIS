@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcfeff;
+}
+
+
+.hero {
+    background-color: #a1badd; 
+    padding: 20px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+
+nav img {
+    width: 100px; 
+    height: auto; 
+    margin-right: 20px; 
+}
+h1{
+    margin: 10px 0 30px;
+    color:#443232;
+    animation-delay: 0.4s;
+}
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: calc(100% - 22px); 
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+form textarea {
+    height: 200px; 
+}
+
+
+
+    </style>
+    
+    <div class="hero">
+        <nav>
+        <a href="index.php"><img src="image/logo 2.jpg" alt=""></a><h1>Governor Ferrer Memorial National High School Biclatan</h1>
+        </nav>
+    </div>
+    <h1 class="h1">Contact Us</h1>
+    
+    <div class="contact-container">
+        <ul>
+            <h3>
+            <li><i class="fas fa-phone-alt"></i> +639175065557</a></li>
+            <li><i class="fas fa-phone-alt"></i> (046) 538-95-78</a></li>
+            <li><a href="mailto:depedgeneraltrias.govbiclatan@gmail.com"><i class="far fa-envelope"></i> depedgeneraltrias.govbiclatan@gmail.com</a></li>
+            <li> <a href="https://www.facebook.com/govferrerbiclatan ">DepEd Tayo - Gov. Ferrer Memorial National High School - Biclatan Annex </a></li>
+            </h3>
+        </ul>
+        <form action="submit.php" method="post">
+           <br> <input type="text" name="name" placeholder="Enter Your Name"></br>
+          <br><input type="email" name="email" placeholder="Enter Your Email"></br>
+           <br> <input type="text" name="subject" placeholder="Enter Your Contact No."></br>
+           <br> <textarea name="message" placeholder="Enter Your Message or Concern."></textarea></br>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="social-links">
+            <a href="https://www.facebook.com/govferrerbiclatan/"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+</body>
+</html>
+
+</body>
+</html>

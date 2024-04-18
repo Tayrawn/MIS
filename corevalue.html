@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School History</title>
+    <link rel="stylesheet" href="mission.css">
+</head>
+<body>
+    <style>
+        
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #a1badd;
+}
+
+
+.hero {
+    background-color: #f0f0f0; 
+    padding: 20px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+
+nav img {
+    width: 100px; 
+    height: auto; 
+    margin-right: 20px; 
+}
+.flip-card {
+    width: 300px;
+    height: 450px;
+    margin: auto;
+    perspective: 1000px; 
+}
+
+.flip-card-inner {
+    position: relative;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); 
+}
+
+.flip-card-back {
+    background-color: aqua;
+    color: #ffff;
+    transform: rotateY(180deg); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+}
+
+    </style>
+    <div class="hero">
+        <nav>
+       <a href="index.php"><img src="image/logo 2.jpg" alt=""></a><h1>Governor Ferrer Memorial National High School Biclatan</h1>
+        </nav>
+        
+    </div>
+    <div class="title">
+        <h1>About Us</h1>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="image/pic3.jpeg" alt="">
+            </div>
+            <div class="flip-card-back">
+                <div class="back-header">
+                    <img src="image/pic3.jpeg" alt="">
+                </div>
+                <div class="back-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+    <H1>Core Values</H1>
+    <h4>
+      <li>MAKA-DIYOS </li>  <br>
+      <li>MAKATAO</li><br>
+      <li>MAKAKALIKASAN</li><br>
+      <li>MAKABANSA </li><br>
+
+       <button> <a href="index.php">Home</a></button>
+
+    </h4>
+    </div>
+    </body>
+</html>

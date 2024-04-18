@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students Data</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #a1badd;
+  }
+
+  header, nav, section, footer {
+    padding: 20px;
+  }
+
+  header {
+    background-color: #333;
+    color: #edf2f3;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  nav ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  section {
+    margin: 20px auto;
+    width: 80%;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input, select, button {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover{
+  background-color:skyblue;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin:0px;
+    padding:0px;
+    margin-left: 0%;
+  }
+    </style>
+  <header>
+    <h1>Students Information For Governor Ferrer Memorial National High School Biclatan Annex</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="Aboutus.html">About</a></li>
+
+      <li><a href="contacts.html">Contact</a></li>
+    </ul>
+  </nav>
+  <ul a:hover{
+    color: white;
+  }
+   <section id="enrollment-form">
+    <h2>School Staff Schedules</h2>
+    <form>
+        <label for="gender">Subject Teachers:</label>
+        <input type="text" id="gender" name="Faculty Members" required>
+        <label for="gender">Advisers:</label>
+        <input type="text" id="gender" name="Faculty Members" required>
+      <label for="gender">Faculty Members:</label>
+      <input type="text" id="gender" name="Faculty Members" required>
+      <label for="email">Other Staffs:</label>
+      <input type="email" id="email" name="Other Staffs" required>
+      
+      
+     
+
+      <button onclick="window.location.href='viewsched.html';" type="button">Load</button>
+      <button onclick="window.location.href='Login.php';" type="button">Log out</button>
+    </form>
+  </section>
+  <footer>
+    <p>&copy; 2024 Management Information System</p>
+  </footer>
+</body>
+</html>

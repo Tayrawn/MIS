@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="stundeninfo.css">
+    <style>
+        
+        .login-btn {
+            position: absolute;
+            top: 60px; 
+            right: 20px;
+            background-color: #399fbe;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <a href="index.php"> <img src="image/logo 2.jpg" alt=""></a>
+            <h1>Governor Ferrer Memorial National High School Biclatan</h1>
+        </nav>
+       <a href="Staffsched.html"><button class="login-btn">School Staff Schedule</button> </a>
+    </div>
+    <h1>Student Management System</h1> 
+
+   
+    <label for="name of student"><h2>Name of student:</h2></label>
+    <input type="text" id="name" name="name" required><button>Load</button>
+
+    <h2>View Class Schedule</h2>
+    <button onclick="viewClassSchedule()">View Schedule</button>
+    <div id="classSchedule"></div>
+
+    <h2>View Section of Students</h2>
+    <button onclick="viewSection()">View Section</button>
+    <div id="sectionDetails"></div>
+
+    <h2>Upload Student Credentials</h2>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" accept=".csv">
+        <button type="submit" onclick="uploadCredentials()">Upload</button>
+    </form>
+
+    <h2>View Quarterly Grades</h2>
+    <button onclick="viewGrades()">View Grades</button>
+    <div id="quarterlyGrades"></div>
+
+    <script>
+        
+    </script>
+</body>
+</html>
